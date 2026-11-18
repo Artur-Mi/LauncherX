@@ -1,8 +1,8 @@
 # LauncherX
 
 Vertical missile launcher tower (1x1x4) for the MisterWeapon modpack (Space Engineers 1). Has a script of its own for
-visuals. Today it does not use the brain mod ([missil-misterplace](../missil-misterplace/README.md)); see
-[docs/contents.md](docs/contents.md).
+visuals. **Requires the brain mod** ([missil-misterplace](../missil-misterplace/README.md)), which gives its missile the
+SLBM behaviour; enable both in the world (dev with dev, final with final). See [docs/contents.md](docs/contents.md).
 
 | Target | Local folder in `%APPDATA%\SpaceEngineers\Mods` | Workshop ID |
 |---|---|---|

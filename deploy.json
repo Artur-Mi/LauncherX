@@ -9,5 +9,11 @@
       "folder": "LauncherX",
       "workshopId": null
     }
-  }
+  },
+  "requires": [
+    {
+      "repo": "missil-misterplace",
+      "note": "brain mod; dev target needs its dev folder, final target its final folder"
+    }
+  ]
 }

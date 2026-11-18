@@ -21,7 +21,9 @@ Visuals only: it does not aim or fire; the vanilla launcher logic does that.
 
 ## Relationship to the brain
 
-The script does not call the brain, but the brain knows `LauncherXMissile`: it is **aquatic (SLBM) ammo**, so it gets
+**LauncherX requires the brain** (`missil-misterplace`): see
+[dependencies](../../missil-misterplace/docs/deployment.md). `deploy.json` lists it under `requires`, and the session
+script warns at world start if the brain is not loaded. The script does not call the brain, but the brain knows `LauncherXMissile`: it is **aquatic (SLBM) ammo**, so it gets
 the SLBM underwater behaviour and guidance, and the brain's Iron Dome blocks can intercept it once it surfaces
 ([../../missil-misterplace/docs/architecture.md](../../missil-misterplace/docs/architecture.md)). The brain changes only
 behaviour: the ammo's stats (damage, speed, acceleration, fire rate) stay defined here and were not changed. Without the

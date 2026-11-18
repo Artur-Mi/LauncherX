@@ -256,8 +256,34 @@ namespace LauncherX
             ModPath = ModContext.ModPath;
         }
 
+        // Dependencia: o mod principal de misseis (missil-misterplace) da ao LauncherXMissile o comportamento
+        // SLBM (sai debaixo d'agua e guia). Workshop: 3496380795 (final) e 3514275550 (dev); local: nome da pasta.
+        static readonly ulong[] BrainWorkshopIds = { 3496380795UL, 3514275550UL };
+        static readonly string[] BrainLocalNames = { "missil-misterplace", "missil-misterplace-dev" };
+
+        static bool BrainLoaded()
+        {
+            var mods = MyAPIGateway.Session != null ? MyAPIGateway.Session.Mods : null;
+            if (mods == null) return true;      // nao da para saber: nao incomoda
+            foreach (var m in mods)
+            {
+                string name = m.Name ?? "";
+                foreach (var local in BrainLocalNames)
+                    if (name == local) return true;
+                foreach (var id in BrainWorkshopIds)
+                    if (m.PublishedFileId == id || name.StartsWith(id.ToString())) return true;
+            }
+            return false;
+        }
+
         public override void BeforeStart()
         {
+            if (!BrainLoaded())
+            {
+                MyLog.Default.WriteLineAndConsole("[LauncherX] Required mod missil-misterplace is not loaded: LauncherXMissile will not behave as SLBM ammo.");
+                if (!MyAPIGateway.Utilities.IsDedicated)
+                    MyAPIGateway.Utilities.ShowNotification("LauncherX: falta o mod principal de misseis (missil-misterplace). Sem ele o missil nao funciona como SLBM.", 15000, "Red");
+            }
             if (MyAPIGateway.Missiles == null) return;
             MyAPIGateway.Missiles.OnMissileAdded += OnMissileAdded;
             MyAPIGateway.Missiles.OnMissileRemoved += OnMissileRemoved;
