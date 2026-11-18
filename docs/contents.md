@@ -21,10 +21,14 @@ Visuals only: it does not aim or fire; the vanilla launcher logic does that.
 
 ## Relationship to the brain
 
-The script does not call the brain, and the brain does not guide `LauncherXMissile`: its guidance code
-looks ammo up by subtype name ([../../missil-misterplace/docs/architecture.md](../../missil-misterplace/docs/architecture.md)),
-and `LauncherXMissile` is not in that list. Phase 4 of [../../docs/modpack-plan.md](../../docs/modpack-plan.md) covers
-moving the shared logic into the brain.
+The script does not call the brain, but the brain knows `LauncherXMissile`: it is **aquatic (SLBM) ammo**, so it gets
+the SLBM underwater behaviour and guidance, and the brain's Iron Dome blocks can intercept it once it surfaces
+([../../missil-misterplace/docs/architecture.md](../../missil-misterplace/docs/architecture.md)). The brain changes only
+behaviour: the ammo's stats (damage, speed, acceleration, fire rate) stay defined here and were not changed. Without the
+brain loaded, the missile flies as an ordinary unguided missile. Phase 4 of
+[../../docs/modpack-plan.md](../../docs/modpack-plan.md) covers moving more shared logic into the brain.
+
+Not copied from SLBM: the block is not restricted to underwater use (`WaterConfig.xml` is empty).
 
 ## Not set up yet
 - No `metadata.mod` (the other mods have one).
