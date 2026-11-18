@@ -32,7 +32,10 @@ brain loaded, the missile flies as an ordinary unguided missile. Phase 4 of
 
 Like the SLBM block, `LauncherX` works only underwater (`Mod/Data/WaterConfig.xml`: `FunctionalUnderwater=true`,
 `FunctionalAboveWater=false`, volume 62.5 = four large blocks). This needs Jakaria's Water Mod; without it the file is
-ignored and the block works anywhere. The block's own stats were not changed.
+ignored and the block works anywhere. The Water Mod only tests the block's origin cell and does nothing where there is
+no water, so the brain's `AquaticLauncher` also switches the block off whenever its **muzzle** is not under water (including
+space), as long as the Water Mod is loaded ([details](../../missil-misterplace/docs/architecture.md)). The block's own
+stats were not changed.
 
 ## Not set up yet
 - No `metadata.mod` (the other mods have one).
