@@ -1,0 +1,13 @@
+{
+  "steamIdOwner": "76561198300566255",
+  "targets": {
+    "dev": {
+      "folder": "LauncherX-dev",
+      "workshopId": null
+    },
+    "final": {
+      "folder": "LauncherX",
+      "workshopId": null
+    }
+  }
+}
