@@ -1,3 +1,11 @@
 <?xml version="1.0"?>
 <WaterConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <BlockConfigs>
+    <!-- Same as the SLBM block: works only underwater. Volume = 4 large blocks (1x1x4 x 15.625 m3). -->
+    <BlockConfig TypeId="SmallMissileLauncher" SubtypeId="LauncherX" Volume="62.5" FunctionalUnderwater="true" FunctionalAboveWater="false" PlayDamageEffect="false" />
+  </BlockConfigs>
+  <PlanetConfigs>
+  </PlanetConfigs>
+  <CharacterConfigs>
+  </CharacterConfigs>
 </WaterConfig>

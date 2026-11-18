@@ -5,7 +5,7 @@
 | Block (`SmallMissileLauncher`) | `LauncherX` | "Launcher X", 1x1x4 vertical tower; model `Models\LauncherX\LauncherX.mwm` |
 | Weapon definition | `LauncherX_Weapon` | Used by the block |
 | Ammo, magazine, blueprint | `LauncherXMissile` | "Míssil Launcher X": speed 3 to 300, acceleration 30, explosion radius 11, damage 10000 |
-| Water config | `WaterConfig.xml` | Empty |
+| Water config | `WaterConfig.xml` | Underwater only, like SLBM (see below) |
 
 All definitions are in `Mod/Data/LauncherX.sbc`. Models are in `Mod/Models/LauncherX/` (body, display missile, two door
 parts), textures in `Mod/Textures/`.
@@ -28,7 +28,9 @@ behaviour: the ammo's stats (damage, speed, acceleration, fire rate) stay define
 brain loaded, the missile flies as an ordinary unguided missile. Phase 4 of
 [../../docs/modpack-plan.md](../../docs/modpack-plan.md) covers moving more shared logic into the brain.
 
-Not copied from SLBM: the block is not restricted to underwater use (`WaterConfig.xml` is empty).
+Like the SLBM block, `LauncherX` works only underwater (`Mod/Data/WaterConfig.xml`: `FunctionalUnderwater=true`,
+`FunctionalAboveWater=false`, volume 62.5 = four large blocks). This needs Jakaria's Water Mod; without it the file is
+ignored and the block works anywhere. The block's own stats were not changed.
 
 ## Not set up yet
 - No `metadata.mod` (the other mods have one).
